@@ -1,0 +1,100 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa; 
+}
+
+header {
+    background: linear-gradient(90deg, #6a11cb, #2575fc); 
+    color: white;
+}
+
+h1, h2 {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); 
+}
+
+.card {
+    transition: transform 0.2s; 
+    border: 1px solid #ced4da; 
+    border-radius: 10px; 
+    overflow: hidden; 
+
+.card:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); 
+}
+
+.card-title {
+    font-size: 1.5rem; 
+    color: #6a11cb; 
+}
+
+.card-text {
+    font-size: 1rem; 
+    color: #333; /* Dark text for readability */
+}
+
+.btn-info {
+    margin-right: 10px;
+    background-color: #ffc107; /* Yellow color for info buttons */
+    color: white;
+    border: none;
+}
+
+.btn-info:hover {
+    background-color: #e0a800; /* Slightly darker shade on hover */
+}
+
+.btn-success {
+    background-color: #28a745; /* Green color for success buttons */
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+footer {
+    background-color: #343a40; /* Darker footer background */
+    color: rgb(32, 0, 0); /* White text for contrast */
+}
+
+.pagination .page-link {
+    border-radius: 0; /* Remove rounded edges for a clean look */
+    background-color: #007bff; /* Blue color for pagination links */
+    color: white;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #0069d9; /* Active page background */
+}
+
+.pagination .page-link:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+form {
+    background-color: #ffffff; /* White background for forms */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for emphasis */
+    border-radius: 10px; /* Slightly rounded corners on forms */
+}
+
+.form-group label {
+    font-weight: bold; /* Make labels bold for better visibility */
+}
+
+.form-control {
+    border-radius: 5px; /* Rounded corners for inputs */
+}
+
+textarea {
+    border-radius: 5px; /* Rounded corners for textareas */
+}
+
+@media (max-width: 768px) {
+    .card {
+        margin: 10px 0; /* Stack cards on smaller screens */
+    }
+}

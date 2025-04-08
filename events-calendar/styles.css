@@ -3,36 +3,37 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f8f9fa; 
+    background-color: #f8f9fa; /* Light background for better contrast */
 }
 
 header {
-    background: linear-gradient(90deg, #6a11cb, #2575fc); 
+    background: linear-gradient(90deg, #6a11cb, #2575fc); /* Gradient color for header */
     color: white;
 }
 
 h1, h2 {
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
 }
 
 .card {
-    transition: transform 0.2s; 
-    border: 1px solid #ced4da; 
-    border-radius: 10px; 
-    overflow: hidden; 
+    transition: transform 0.2s; /* Adding a hover effect */
+    border: 1px solid #ced4da; /* Adding a border to the cards */
+    border-radius: 10px; /* Rounded card corners */
+    overflow: hidden; /* Keep content within the rounded corners */
+}
 
 .card:hover {
-    transform: scale(1.05); 
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); 
+    transform: scale(1.05); /* Scale effect on hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Shadow effect on hover */
 }
 
 .card-title {
-    font-size: 1.5rem; 
-    color: #6a11cb; 
+    font-size: 1.5rem; /* Slightly larger title */
+    color: #6a11cb; /* Title color */
 }
 
 .card-text {
-    font-size: 1rem; 
+    font-size: 1rem; /* Standard font size for card text */
     color: #333; /* Dark text for readability */
 }
 
@@ -58,7 +59,7 @@ h1, h2 {
 
 footer {
     background-color: #343a40; /* Darker footer background */
-    color: rgb(32, 0, 0); /* White text for contrast */
+    color: white; /* White text for contrast */
 }
 
 .pagination .page-link {

@@ -59,7 +59,7 @@ h1, h2 {
 
 footer {
     background-color: #343a40; /* Darker footer background */
-    color: white; /* White text for contrast */
+    color: rgb(5, 3, 3); /* White text for contrast */
 }
 
 .pagination .page-link {

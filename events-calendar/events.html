@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Events Calendar</title>
+</head>
+
+<body>
+    <header>
+        <h1>Events Calendar</h1>
+    </header>
+
+    <main class="container mt-4">
+        <section class="mb-4">
+        <h2>Events Listing</h2>
+        <div class="d-flex justify-content-between mb-3">
+         <input type="text" class="form-control w-50" placeholder="Search events..." aria-label="Search">
+         <div>
+          <button class="btn btn-info">Sort by Date</button>
+          <button class="btn btn-info">Sort by Popularity</button>
+          <button class="btn btn-success">Add New Event</button>
+         </div>
+        </div>
+        <div class="row">
+            <div class="row">
+                <!-- Event Card 1 -->
+                <div class="col-md-4 mb-4">
+                 <div class="card">
+                  <div class="card-body">
+                   <h5 class="card-title">UOB Open Day</h5>
+                   <p class="card-text">Date: September 30, 2025</p>
+                   <p class="card-text">Location: Campus Hall</p>
+                   <a href="event-detail.html" class="btn btn-primary">View Details</a>
+                  </div>
+                 </div>
+                </div>
+                
+                <!-- Event Card 2 -->
+                <div class="col-md-4 mb-4">
+                 <div class="card">
+                  <div class="card-body">
+                   <h5 class="card-title">Student Research Symposium</h5>
+                   <p class="card-text">Date: October 7, 2025</p>
+                   <p class="card-text">Location: S20</p>
+                   <a href="event-detail.html" class="btn btn-primary">View Details</a>
+                  </div>
+                 </div>
+                </div>
+               
+                <!-- Event Card 3 -->
+                <div class="col-md-4 mb-4">
+                 <div class="card">
+                  <div class="card-body">
+                   <h5 class="card-title">Careers Fair 2025</h5>
+                   <p class="card-text">Date: October 14, 2023</p>
+                   <p class="card-text">Location: Campus Hall </p>
+                   <a href="event-detail.html" class="btn btn-primary">View Details</a>
+                  </div>
+                 </div>
+                </div>
+               
+                <!-- Event Card 4 -->
+                <div class="col-md-4 mb-4">
+                 <div class="card">
+                  <div class="card-body">
+                   <h5 class="card-title">Cultural Festival</h5>
+                   <p class="card-text">Date: October 21, 2025</p>
+                   <p class="card-text">Location: S20</p>
+                   <a href="event-detail.html" class="btn btn-primary">View Details</a>
+                  </div>
+                 </div>
+                </div>
+               
+                <!-- Event Card 5 -->
+                <div class="col-md-4 mb-4">
+                 <div class="card">
+                  <div class="card-body">
+                   <h5 class="card-title">Annual Sports Day</h5>
+                   <p class="card-text">Date: October 28, 2025</p>
+                   <p class="card-text">Location: college of physical education and physiotherapy </p>
+                   <a href="event-detail.html" class="btn btn-primary">View Details</a>
+                  </div>
+                 </div>
+                </div>
+               </div>
+               
+   <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+     <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+     <li class="page-item"><a class="page-link" href="#">1</a></li>
+     <li class="page-item"><a class="page-link" href="#">2</a></li>
+     <li class="page-item"><a class="page-link" href="#">3</a></li>
+     <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+   </nav>
+  </section>
+  <section>
+    <h2>Create New Event</h2>
+    <form action="#" method="post" class="border p-4">
+     <div class="form-group">
+      <label for="eventTitle">Event Title <span class="text-danger">*</span></label>
+      <input type="text" id="eventTitle" class="form-control" required>
+     </div>
+     <div class="form-group">
+      <label for="eventDate">Date <span class="text-danger">*</span></label>
+      <input type="date" id="eventDate" class="form-control" required>
+     </div>
+     <div class="form-group">
+      <label for="eventLocation">Location <span class="text-danger">*</span></label>
+      <input type="text" id="eventLocation" class="form-control" required>
+     </div>
+     <div class="form-group">
+      <label for="eventDescription">Description</label>
+      <textarea id="eventDescription" class="form-control" rows="3"></textarea>
+     </div>
+     <button type="submit" class="btn btn-success">Submit</button>
+     <a href="#" class="btn btn-secondary">Cancel</a>
+    </form>
+    </section>
+   </main>
+   <footer class="bg-light text-center p-3 mt-4">
+    <p>&copy; 2025 Events Calendar. All rights reserved.</p>
+   </footer>
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   </body
+
+  
+  

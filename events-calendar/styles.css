@@ -1,0 +1,160 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    background-color: #dc7f9e; /* Lighter background */
+    color: #371f1f; /* Darker text for readability */
+    font-family: 'Roboto', sans-serif; /* Use Roboto font */
+}
+
+header {
+    background-color: #ec4899; /* Pink background for header */
+    padding: 1rem; /* Padding for header */
+    text-align: center; /* Center text */
+    color: white; /* White text */
+    font-size: 1.5rem; /* Font size for header */
+    font-weight: bold; /* Bold font */
+}
+
+h1, h2 {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
+}
+
+.card {
+    transition: transform 0.2s; /* Adding a hover effect */
+    background-color: white; /* White background for cards */
+    padding: 15px; /* Padding inside cards */
+    border: 1px solid #d1d5db; /* Light gray border */
+    border-radius: 10px; /* Rounded card corners */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
+    overflow: hidden; /* Keep content within the rounded corners */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Scale effect on hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Shadow effect on hover */
+}
+
+.card-title {
+    font-size: 1.5rem; /* Slightly larger title */
+    color: #db2777; /* Pink color for title */
+}
+
+.card-text {
+    font-size: 1rem; /* Standard font size for card text */
+    color: #333; /* Dark text for readability */
+}
+
+.btn-info {
+    margin-right: 10px; /* Spacing for buttons */
+    background-color: #db2777; /* Pink color for info buttons */
+    color: white; /* White text */
+    border: none; /* No border */
+}
+
+.btn-info:hover {
+    background-color: #c81e4b; /* Darker shade on hover */
+}
+
+.btn-success {
+    background-color: #28a745; /* Green color for success buttons */
+    color: white; /* White text */
+}
+
+.btn-success:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+footer {
+    background-color: #ec4899; /* Pink background for footer */
+    color: rgb(93, 15, 55); /* White text */
+    text-align: center; /* Center text */
+    padding: 10px; /* Padding for footer */
+    margin-top: 20px; /* Margin above footer */
+    font-size: 1rem; /* Font size for footer text */
+}
+
+footer a {
+    color: #773d61; /* White color for links */
+    text-decoration: none; /* No underline by default */
+    font-weight: bold; /* Bold font for links */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.pagination .page-link {
+    border-radius: 0; /* Remove rounded edges for a clean look */
+    background-color: #c43089; /* Blue color for pagination links */
+    color: white; /* White text */
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #90507e; /* Active page background */
+}
+
+.pagination .page-link:hover {
+    background-color: #8f4179; /* Darker shade on hover */
+}
+
+form {
+    background-color: #9a3f77; /* White background for forms */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for emphasis */
+    border-radius: 10px; /* Slightly rounded corners on forms */
+    padding: 15px; /* Padding inside forms */
+}
+
+.search-filter {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Spacing between filter elements */
+    margin-bottom: 20px; /* Margin below the filter */
+}
+
+.search-filter input,
+.search-filter select,
+.search-filter button {
+    padding: 10px; /* Padding for inputs */
+    border-radius: 5px; /* Rounded corners for inputs */
+    border: 1px solid #d1d5db; /* Light gray border for inputs */
+}
+
+.search-filter button {
+    background-color: #db2777; /* Pink color for filter button */
+    color: white; /* White text */
+    border: none; /* No border */
+}
+
+.listing-grid {
+    display: grid; /* Grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 15px; /* Gap between grid items */
+}
+
+.group-card {
+    background-color: white; /* White background */
+    padding: 15px; /* Padding for group cards */
+    border-radius: 10px; /* Rounded corners for group cards */
+    border: 1px solid #d1d5db; /* Light gray border */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.group-card h2 {
+    color: #db2777; /* Pink color for group card titles */
+    font-size: 1.2rem; /* Font size for titles */
+    font-weight: bold; /* Bold font for titles */
+}
+
+.group-card button {
+    color: #db2777; /* Pink color for group card buttons */
+    border: none; /* No border */
+    background: none; /* No background */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+@media (max-width: 768px) {
+    .card {
+        margin: 10px 0; /* Stack cards on smaller screens */
+    }
+}

@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Tahoma', sans-serif;
+    background-color: #f9f1f8;
+    direction: ltr;
+  }
+  
+  .header {
+    background-color: #f1a7c9;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    animation: headerAnimation 1s ease-in-out;
+  }
+  
+  @keyframes headerAnimation {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .subjects-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    text-align: center;
+    animation: fadeInTable 1s ease-in-out;
+  }
+  
+  @keyframes fadeInTable {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .subjects-table th,
+  .subjects-table td {
+    padding: 15px;
+    border: 1px solid #e0a1c3;
+    transition: background-color 0.3s ease;
+  }
+  
+  .subjects-table th {
+    background-color: #f1a7c9;
+    color: white;
+  }
+  
+  .subjects-table td {
+    background-color: #ffffff;
+  }
+  
+  .subject-btn {
+    display: block;
+    color: #e74c8c;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .subject-btn:hover {
+    color: #d84d77;
+    transform: scale(1.05);
+  }
+  
+  .footer {
+    text-align: center;
+    padding: 15px;
+    color: gray;
+    font-size: 14px;
+    margin-top: 30px;
+    font-style: italic;
+  }
+  
+  .footer a {
+    color: #f1a7c9;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .footer a:hover {
+    color: #d84d77;
+  }
+  
+  /* Back Button */
+  .back-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #f1a7c9;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s ease;
+  }
+  
+  .back-btn:hover {
+    background-color: #e74c8c;
+    transform: translateY(-5px);
+  }
+  
+  .back-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: 768px) {
+    .subject-btn {
+      font-size: 1.2rem;
+    }
+    .footer {
+      font-size: 12px;
+    }
+  }

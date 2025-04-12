@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="C:\Users\HP\Desktop\ITCS333project\Project333\style.css">
+    <title>Course Review Page</title>
+    <style>
+       
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #aca4a4; 
+        }
+        .course-id {
+            width: 75%; 
+        }
+        .review {
+            width: 25%; 
+        }
+        .questions-container {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #aca4a4;
+        }
+        .questions-container h3 {
+            margin: 0 0 10px;
+        }
+        .question {
+            margin-bottom: 5px;
+        }
+        .rating-table {
+            width: 100%;
+            margin-top: 20px;
+        }
+        .rating-table td {
+            padding: 10px;
+            text-align: center;
+        }
+        .text-answer {
+            width: 100%;
+            padding: 5px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .submit-button {
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #e797c3;
+            color: black;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block; 
+            margin-left: auto; 
+            margin-right: auto; 
+        }
+        .h5page {
+            margin-left: auto; 
+            margin-right: auto; 
+            margin-top: 3px;
+            margin-bottom: 3px;
+        }
+        .submit-button:hover {
+            background-color: #e797c3;
+        }
+    </style>
+</head>
+<body style="background-color: #f0bcd8;">
+
+<div class="header">
+    <div class="menu">☰</div>
+    <h4 class="h5page">Course Review</h4>
+    <div class="search"><input type="text" placeholder="Search.."></div>
+</div>
+
+<div class="container">
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th class="course-id">Course ID</th>
+                    <th class="review">Review</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ITCS333</td>
+                    <td><button>&gt;</button></td>
+                </tr>
+                <tr>
+                    <td>ITCS444</td>
+                    <td><button>&gt;</button></td>
+                </tr>
+                <tr>
+                    <td>ITCS496</td>
+                    <td><button>&gt;</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    
+    <div class="questions-container">
+        <table class="rating-table">
+            <thead>
+                <tr>
+                    <th>Question</th>
+                    <th>Very Good</th>
+                    <th>Good</th>
+                    <th>Fair</th>
+                    <th>Poor</th>
+                    <th>Very Poor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1. How effective were the learning materials (e.g., textbooks, online resources) used in the course?</td>
+                    <td><input type="radio" name="effort" value="very_good"></td>
+                    <td><input type="radio" name="effort" value="good"></td>
+                    <td><input type="radio" name="effort" value="fair"></td>
+                    <td><input type="radio" name="effort" value="poor"></td>
+                    <td><input type="radio" name="effort" value="very_poor"></td>
+                </tr>
+                <tr>
+                    <td>2. Were the assignments and projects relevant to the course content?</td>
+                    <td><input type="radio" name="knowledge_start" value="very_good"></td>
+                    <td><input type="radio" name="knowledge_start" value="good"></td>
+                    <td><input type="radio" name="knowledge_start" value="fair"></td>
+                    <td><input type="radio" name="knowledge_start" value="poor"></td>
+                    <td><input type="radio" name="knowledge_start" value="very_poor"></td>
+                </tr>
+                <tr>
+                    <td>3. How satisfied were you with the overall learning experience in this course?</td>
+                    <td><input type="radio" name="knowledge_end" value="very_good"></td>
+                    <td><input type="radio" name="knowledge_end" value="good"></td>
+                    <td><input type="radio" name="knowledge_end" value="fair"></td>
+                    <td><input type="radio" name="knowledge_end" value="poor"></td>
+                    <td><input type="radio" name="knowledge_end" value="very_poor"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        
+        <div class="question">
+            4. What improvements would you suggest?
+            <input type="text" class="text-answer" placeholder="Your answer here...">
+        </div>
+        <div class="question">
+            5. What aspects of the teaching methods did you find most beneficial?
+            <input type="text" class="text-answer" placeholder="Your answer here...">
+        </div>
+        <div class="question">
+            6. What resources or materials would you suggest adding to improve the course?
+            <input type="text" class="text-answer" placeholder="Your answer here...">
+        </div>
+        
+        <button class="submit-button">Submit</button> 
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0bcd8;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #e797c3;
+}
+.menu, .search {
+    cursor: pointer;
+}
+.container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    border: 1px solid #aca4a4;
+    border-radius: 5px;
+    background-color: #f3d7e6;
+    
+}
+

@@ -84,3 +84,33 @@ sortPopularityBtn.addEventListener('click', () => {
     currentPage = 1;
     renderEvents();
 });
+function renderPagination() {
+    const totalPages = Math.ceil(filteredData.length / eventsPerPage);
+
+    paginationContainer.innerHTML = `
+        <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+            <a class="page-link" href="#" onclick="changePage(${currentPage - 1})">Previous</a>
+        </li>
+    `;
+
+    for (let i = 1; i <= totalPages; i++) {
+        paginationContainer.innerHTML += `
+            <li class="page-item ${currentPage === i ? 'active' : ''}">
+                <a class="page-link" href="#" onclick="changePage(${i})">${i}</a>
+            </li>
+        `;
+    }
+
+    paginationContainer.innerHTML += `
+        <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
+            <a class="page-link" href="#" onclick="changePage(${currentPage + 1})">Next</a>
+        </li>
+    `;
+}
+
+window.changePage = function (page) {
+    if (page < 1 || page > Math.ceil(filteredData.length / eventsPerPage)) return;
+    currentPage = page;
+    renderEvents();
+    renderPagination();
+}

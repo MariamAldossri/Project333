@@ -73,3 +73,14 @@ searchInput.addEventListener('input', function (e) {
     renderEvents();
     renderPagination();
 });
+sortDateBtn.addEventListener('click', () => {
+    filteredData.sort((a, b) => new Date(a.date) - new Date(b.date));
+    currentPage = 1;
+    renderEvents();
+});
+
+sortPopularityBtn.addEventListener('click', () => {
+    filteredData.sort((a, b) => (b.popularity || 0) - (a.popularity || 0)); // Default popularity if missing
+    currentPage = 1;
+    renderEvents();
+});

@@ -12,7 +12,7 @@ const eventsPerPage = 3;
 async function fetchEvents() {
     try {
         showLoading();
-        const response = await fetch('https://mockapi.io/projects/662d9a46a7afac45f5bde82b/events'); // Sample link (you can create your own dummy API)
+        const response = await fetch('events.json'); 
         if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
         eventsData = data;

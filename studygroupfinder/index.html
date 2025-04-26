@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Study Group Finder</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100">
+
+  <header class="p-6 text-white bg-gradient-to-r from-purple-700 to-pink-500">
+    <h1 class="text-4xl font-bold text-center">Study Group Finder</h1>
+  </header>
+
+  <main class="p-6">
+
+    <!-- Search, Filter, Add Button -->
+    <section class="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
+      <input id="searchInput" type="text" placeholder="Search by group name..." class="p-3 border rounded w-full md:w-1/3">
+      <select id="filterSelect" class="p-3 border rounded w-full md:w-1/4">
+        <option value="">Filter by Subject</option>
+        <option>Math</option>
+        <option>Web Development</option>
+        <option>Mobile Application Development</option>
+        <option>Cloud Computing</option>
+        <option>Internet of Thing (IoT)</option>
+        <option>Human Computer Interaction (HCI)</option>
+        <option>Big Data Analytics</option>
+        <option>Computer Architecture</option>
+        <option>IT Governance</option>
+        <option>Network Security</option>
+        <option>Ethical Hacking</option>
+        <option>Enterprise System</option>
+      </select>
+      <button id="addGroupBtn" class="btn-primary p-3 rounded w-full md:w-auto">+ Add New Group</button>
+    </section>
+
+    <!-- Sorting and Pagination -->
+    <section class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+      <div>
+        <label for="sortSelect" class="font-semibold">Sort by:</label>
+        <select id="sortSelect" class="p-3 border rounded">
+          <option value="name">Group Name</option>
+          <option value="time">Meeting Time</option>
+        </select>
+      </div>
+      <div id="pagination" class="flex gap-4">
+        <button class="btn-info p-3 rounded">Prev</button>
+        <button class="btn-info p-3 rounded">Next</button>
+      </div>
+    </section>
+
+    <!-- Listing Groups -->
+    <section id="groupList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Cards will be injected here dynamically -->
+    </section>
+
+    <!-- Create New Group Form (Initially hidden) -->
+    <section id="createForm" class="hidden mt-10">
+      <form id="newGroupForm" class="bg-white p-8 rounded shadow-lg">
+        <h2 class="text-2xl font-bold mb-6">Create New Study Group</h2>
+        <div class="mb-4">
+          <label for="groupName" class="block font-semibold mb-1">Group Name <span class="text-red-500">*</span></label>
+          <input id="groupName" name="groupName" type="text" required placeholder="Enter group name" class="p-3 border rounded w-full">
+        </div>
+        <div class="mb-4">
+          <label for="groupDetails" class="block font-semibold mb-1">Group Details <span class="text-red-500">*</span></label>
+          <textarea id="groupDetails" name="groupDetails" required placeholder="Enter meeting time or group description" class="p-3 border rounded w-full"></textarea>
+        </div>
+        <div class="flex gap-4">
+          <button type="submit" class="btn-success p-3 rounded">Submit</button>
+          <button type="button" id="cancelForm" class="btn-info p-3 rounded">Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Item Detail View -->
+    <section id="detailView" class="hidden mt-10">
+      <article class="bg-white p-8 rounded shadow-lg">
+        <h2 id="detailName" class="text-3xl font-bold mb-4"></h2>
+        <p id="detailDescription" class="mb-6"></p>
+        <div class="flex gap-4">
+          <button class="btn-primary p-3 rounded">Edit</button>
+          <button class="btn-success p-3 rounded">Delete</button>
+        </div>
+        <button id="backToList" class="btn-info mt-6 p-3 rounded">Back to Listing</button>
+
+        <!-- Comments Section (Design Only) -->
+        <div class="mt-8">
+          <h3 class="text-2xl font-semibold mb-2">Comments</h3>
+          <textarea placeholder="Add your comment..." class="p-3 border rounded w-full"></textarea>
+          <button class="btn-primary mt-4 p-3 rounded">Post Comment</button>
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+  <footer class="p-6 text-center bg-gray-200 mt-12">
+    <p class="font-semibold">University of Bahrain</p>
+    <p><a href="http://www.uob.com" target="_blank" class="text-blue-600">www.uob.com</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

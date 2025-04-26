@@ -1,0 +1,41 @@
+/* styles.css */
+
+.btn-primary {
+    background-color: #6f42c1; /* بنفسجي */
+    color: white;
+    transition: background-color 0.3s;
+  }
+  .btn-primary:hover {
+    background-color: #5936a2;
+  }
+  
+  .btn-success {
+    background-color: #198754; /* أخضر */
+    color: white;
+    transition: background-color 0.3s;
+  }
+  .btn-success:hover {
+    background-color: #146c43;
+  }
+  
+  .btn-info {
+    background-color: #0dcaf0; /* أزرق */
+    color: white;
+    transition: background-color 0.3s;
+  }
+  .btn-info:hover {
+    background-color: #31d2f2;
+  }
+  
+  /* تحسين البطاقات */
+  .card {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    transition: transform 0.3s;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  

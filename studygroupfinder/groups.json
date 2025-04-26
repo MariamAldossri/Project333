@@ -1,0 +1,23 @@
+[
+    {
+      "name": "Web Development",
+      "details": "Every Monday 5PM"
+    },
+    {
+      "name": "Math Group",
+      "details": "Wednesday 3PM"
+    },
+    {
+      "name": "Cloud Computing",
+      "details": "Friday 6PM"
+    },
+    {
+      "name": "Mobile Application Development",
+      "details": "Saturday 2PM"
+    },
+    {
+      "name": "Network Security",
+      "details": "Sunday 4PM"
+    }
+  ]
+  

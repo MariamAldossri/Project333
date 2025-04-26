@@ -1,0 +1,38 @@
+[
+    {
+      "id": 1,
+      "title": "UOB Open Day",
+      "date": "2025-09-30",
+      "location": "Campus Hall",
+      "popularity": 150
+    },
+    {
+      "id": 2,
+      "title": "Student Research Symposium",
+      "date": "2025-10-07",
+      "location": "S20",
+      "popularity": 80
+    },
+    {
+      "id": 3,
+      "title": "Careers Fair 2025",
+      "date": "2025-10-14",
+      "location": "Campus Hall",
+      "popularity": 200
+    },
+    {
+      "id": 4,
+      "title": "Cultural Festival",
+      "date": "2025-10-21",
+      "location": "S20",
+      "popularity": 120
+    },
+    {
+      "id": 5,
+      "title": "Annual Sports Day",
+      "date": "2025-10-28",
+      "location": "College of Physical Education and Physiotherapy",
+      "popularity": 180
+    }
+  ]
+  

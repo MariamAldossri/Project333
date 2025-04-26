@@ -134,5 +134,6 @@ eventForm.addEventListener('submit', function (e) {
     alert('Event successfully validated (not submitted).');
 });
 
+
 // Initialize
 fetchEvents();

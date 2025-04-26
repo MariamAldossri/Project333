@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Marketplace</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header class="bg-primary text-white text-center p-3">
+    <h1>Student Marketplace</h1>
+  </header>
+
+  <main class="container my-4">
+    <div class="mb-4">
+      <input type="text" class="form-control" placeholder="Search for items...">
+      <div class="d-flex justify-content-between mt-2 flex-wrap">
+        <select class="form-select w-50 mb-2 mb-md-0">
+          <option>Sort by Price</option>
+          <option>Sort by Date</option>
+          <option>Sort by Category</option>
+        </select>
+        <button class="btn btn-success ms-md-2 w-100 w-md-auto">List an Item for Sale</button>
+      </div>
+    </div>
+
+    <section class="row" id="item-list">
+      <!-- Item Card 1 -->
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <img src="placeholder.jpg" class="card-img-top" alt="Textbook">
+          <div class="card-body">
+            <h5 class="card-title">Calculus Textbook</h5>
+            <p class="card-text">A used calculus textbook in excellent condition.</p>
+            <p class="card-text"><strong>$50</strong></p>
+            <div class="d-flex justify-content-between mb-2">
+              <button class="btn btn-primary btn-sm">View Details</button>
+              <button class="btn btn-warning btn-sm">Edit</button>
+              <button class="btn btn-danger btn-sm">Delete</button>
+            </div>
+            <div class="comments-section">
+              <h6>Comments</h6>
+              <textarea class="form-control mb-2" rows="2" placeholder="Write a comment..."></textarea>
+              <button class="btn btn-secondary btn-sm">Post Comment</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item Card 2 -->
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <img src="placeholder.jpg" class="card-img-top" alt="Desk">
+          <div class="card-body">
+            <h5 class="card-title">Study Desk</h5>
+            <p class="card-text">Compact study desk, perfect for small spaces.</p>
+            <p class="card-text"><strong>$30</strong></p>
+            <div class="d-flex justify-content-between mb-2">
+              <button class="btn btn-primary btn-sm">View Details</button>
+              <button class="btn btn-warning btn-sm">Edit</button>
+              <button class="btn btn-danger btn-sm">Delete</button>
+            </div>
+            <div class="comments-section">
+              <h6>Comments</h6>
+              <textarea class="form-control mb-2" rows="2" placeholder="Write a comment..."></textarea>
+              <button class="btn btn-secondary btn-sm">Post Comment</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item Card 3 -->
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <img src="placeholder.jpg" class="card-img-top" alt="Laptop">
+          <div class="card-body">
+            <h5 class="card-title">Used Laptop</h5>
+            <p class="card-text">Second-hand laptop in good condition, ideal for students.</p>
+            <p class="card-text"><strong>$200</strong></p>
+            <div class="d-flex justify-content-between mb-2">
+              <button class="btn btn-primary btn-sm">View Details</button>
+              <button class="btn btn-warning btn-sm">Edit</button>
+              <button class="btn btn-danger btn-sm">Delete</button>
+            </div>
+            <div class="comments-section">
+              <h6>Comments</h6>
+              <textarea class="form-control mb-2" rows="2" placeholder="Write a comment..."></textarea>
+              <button class="btn btn-secondary btn-sm">Post Comment</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pagination -->
+    <nav class="mt-3">
+      <ul class="pagination justify-content-center">
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+      </ul>
+    </nav>
+
+    <!-- Back to listing button for detail page (simulate) -->
+    <div class="text-center mt-4">
+      <a href="#item-list" class="btn btn-outline-primary">Back to Listings</a>
+    </div>
+  </main>
+
+  <footer class="bg-dark text-white text-center p-3">
+    <p>&copy; 2025 Student Marketplace</p>
+  </footer>
+</body>
+</html>

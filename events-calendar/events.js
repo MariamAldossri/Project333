@@ -114,3 +114,25 @@ window.changePage = function (page) {
     renderEvents();
     renderPagination();
 }
+eventForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const title = document.getElementById('eventTitle').value.trim();
+    const date = document.getElementById('eventDate').value.trim();
+    const location = document.getElementById('eventLocation').value.trim();
+
+    if (!title || !date || !location) {
+        alert('Please fill all required fields!');
+        return;
+    }
+
+    if (new Date(date) < new Date()) {
+        alert('Please select a future date!');
+        return;
+    }
+
+    alert('Event successfully validated (not submitted).');
+});
+
+// Initialize
+fetchEvents();

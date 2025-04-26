@@ -36,3 +36,31 @@ function hideLoading() {
 function showError(message) {
     eventsContainer.innerHTML = `<div class="text-danger w-100 text-center">${message}</div>`;
 }
+function renderEvents() {
+    const start = (currentPage - 1) * eventsPerPage;
+    const end = start + eventsPerPage;
+    const paginatedEvents = filteredData.slice(start, end);
+
+    eventsContainer.innerHTML = '';
+
+    if (paginatedEvents.length === 0) {
+        eventsContainer.innerHTML = `<div class="text-center w-100">No events found.</div>`;
+        return;
+    }
+
+    paginatedEvents.forEach(event => {
+        const eventCard = `
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">${event.title}</h5>
+                        <p class="card-text">Date: ${event.date}</p>
+                        <p class="card-text">Location: ${event.location}</p>
+                        <a href="event-detail.html" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+        `;
+        eventsContainer.insertAdjacentHTML('beforeend', eventCard);
+    });
+}

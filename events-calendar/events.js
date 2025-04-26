@@ -26,3 +26,13 @@ async function fetchEvents() {
         hideLoading();
     }
 }
+function showLoading() {
+    eventsContainer.innerHTML = `<div class="text-center w-100">Loading...</div>`;
+}
+
+function hideLoading() {
+}
+
+function showError(message) {
+    eventsContainer.innerHTML = `<div class="text-danger w-100 text-center">${message}</div>`;
+}

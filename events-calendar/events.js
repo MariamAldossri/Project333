@@ -64,3 +64,12 @@ function renderEvents() {
         eventsContainer.insertAdjacentHTML('beforeend', eventCard);
     });
 }
+searchInput.addEventListener('input', function (e) {
+    const query = e.target.value.toLowerCase();
+    filteredData = eventsData.filter(event =>
+        event.title.toLowerCase().includes(query)
+    );
+    currentPage = 1;
+    renderEvents();
+    renderPagination();
+});

@@ -28,6 +28,7 @@
             padding: 10px;
             border-radius: 5px;
             border: 1px solid #aca4a4;
+            display: none;
         }
         .questions-container h3 {
             margin: 0 0 10px;
@@ -69,17 +70,61 @@
             margin-bottom: 3px;
         }
         .submit-button:hover {
-            background-color: #e797c3;
+            background-color: #d78eaf;
+        }
+
+        /*  slider part which everyone should have  */
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .slider{
+            height:100%;
+            width:180px;
+            position: absolute;
+            background-color: #d78eaf;
+            transition: 0.5s ease;
+            left: -180px;
+            transition: left 0.5s ease;
+        }
+
+        ul li a{
+            list-style: none;
+            color: black;
+            font-weight: 500;
+            padding: 5px 5px;
+            display: block;
+            text-transform: capitalize;
+            text-decoration: none;
+            transition: 0.2s ease-out;
+            text-align: left;
         }
     </style>
 </head>
 <body style="background-color: #f0bcd8;">
 
 <div class="header">
-    <div class="menu">☰</div>
+    <div class="menu" onclick="toggleSlider()">☰</div>
     <h4 class="h5page">Course Review</h4>
-    <div class="search"><input type="text" placeholder="Search.."></div>
+    <div class="search"><input type="text" placeholder="Search.." oninput="filterCourses()"></div>
 </div>
+
+<label>
+    <div class="slider" id="slider"> <!-- Slider functionality included -->
+        <ul>
+            <li><a href="#">Events Calendar</a></li>
+            <li><a href="#">Study Group Finder</a></li>
+            <li><a href="#">Course Reviews</a></li>
+            <li><a href="#">Course Notes</a></li>
+            <li><a href="#">Campus News</a></li>
+            <li><a href="#">Club Activities</a></li>
+            <li><a href="#">Student Marketplace</a></li>
+        </ul>
+    </div>
+</label>
 
 <div class="container">
 
@@ -91,7 +136,7 @@
                     <th class="review">Review</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="coursesBody">
                 <tr>
                     <td>ITCS333</td>
                     <td><button>&gt;</button></td>
@@ -109,7 +154,7 @@
     </div>
 
     
-    <div class="questions-container">
+    <div class="questions-container" id="questionsContainer">
         <table class="rating-table">
             <thead>
                 <tr>
@@ -166,6 +211,31 @@
         <button class="submit-button">Submit</button> 
     </div>
 </div>
+<script>
+    function showQuestions() {
+        const questionsContainer = document.getElementById('questionsContainer');
+        questionsContainer.style.display = 'block'; 
+    }
 
+    function toggleSlider() {
+        const slider = document.getElementById('slider');
+        if (slider.style.left === '0px') {
+            slider.style.left = '-180px'; 
+        } else {
+            slider.style.left = '0px'; 
+        }
+    }
+
+    function filterCourses() {
+        const searchInput = document.querySelector('.search input').value.toLowerCase();
+        const coursesBody = document.getElementById('coursesBody');
+        const rows = coursesBody.getElementsByTagName('tr');
+
+        for (let row of rows) {
+            const courseId = row.cells[0].textContent.toLowerCase();
+            row.style.display = courseId.includes(searchInput) ? '' : 'none'; 
+        }
+    }
+</script>
 </body>
 </html>

@@ -1,97 +1,69 @@
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
+   font-family: Arial, sans-serif;
+   line-height: 1.6;
 }
 
 header {
-  background-color: #007bff;
-  color: white;
+   background-color: #ff69b4; /* Hot Pink */
+   color: white;
 }
 
 footer {
-  background-color: #333;
-  color: white;
+   background-color: #cc3366; /* Dark Pink */
+   color: white;
 }
 
 #item-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+   display: flex;
+   flex-wrap: wrap;
+   gap: 16px;
 }
 
 .card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+   border: 1px solid #ddd;
+   border-radius: 8px;
+   overflow: hidden;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
 }
 
 .card-img-top {
-  height: 200px;
-  object-fit: cover;
+   height: 200px;
+   object-fit: cover;
 }
 
 .card-body {
-  padding: 16px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+   padding: 16px;
+   flex: 1;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
 }
 
 /* Button styles */
 .btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
+   background-color: #ff69b4;
+   border-color: #ff69b4;
 }
 
 .btn-success {
-  background-color: #28a745;
-  border-color: #28a745;
+   background-color: #ff85a2;
+   border-color: #ff85a2;
 }
 
 .btn-warning {
-  background-color: #ffc107;
-  border-color: #ffc107;
-  color: black;
+   background-color: #ffc0cb;
+   border-color: #ffc0cb;
+   color: black;
 }
 
 .btn-danger {
-  background-color: #dc3545;
-  border-color: #dc3545;
+   background-color: #ff3366;
+   border-color: #ff3366;
 }
 
 .btn-secondary {
-  background-color: #6c757d;
-  border-color: #6c757d;
-}
-
-/* Comments section */
-.comments-section {
-  border-top: 1px solid #ddd;
-  padding-top: 10px;
-  margin-top: 10px;
-}
-
-.comments-section h6 {
-  font-size: 0.95rem;
-  margin-bottom: 8px;
-}
-
-@media (max-width: 768px) {
-  .form-select {
-    width: 100%;
-    margin-bottom: 8px;
-  }
-
-  .btn {
-    width: 100%;
-  }
-
-  .d-flex.justify-content-between {
-    flex-direction: column;
-    gap: 8px;
-  }
+   background-color: #d63384;
+   border-color: #d63384;
 }

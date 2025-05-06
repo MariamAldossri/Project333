@@ -8,64 +8,133 @@
 
 <body>
 
-  <header class="header">
-    <h1>Course Notes 📚</h1>
-  </header>
+
+  <div class="header">
+    <div class="menu" onclick="toggleSlider()">☰</div>
+    <h1>Course Notes</h1>
+  </div>
+
+
+  <div class="slider" id="slider">
+    <ul>
+      <li><a href="#">Events Calendar</a></li>
+      <li><a href="#">Study Group Finder</a></li>
+      <li><a href="#">Course Reviews</a></li>
+      <li><a href="#">Course Notes</a></li>
+      <li><a href="#">Campus News</a></li>
+      <li><a href="#">Club Activities</a></li>
+      <li><a href="#">Student Marketplace</a></li>
+    </ul>
+  </div>
+
+
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search Course..." onkeyup="filterCourses()" />
+  </div>
 
 
   <div class="container">
-    <!-- Course Table with Instructor Names -->
     <table class="subjects-table">
-      <thead>
-        <tr>
-          <th>Course</th>
-          <th>Instructor</th>
-        </tr>
-      </thead>
       <tbody>
         <tr>
-          <td><a href="web-dev.html" class="subject-btn">Web Development 📖</a></td>
-          <td>Dr. Ahmed Al-Ali</td>
+          <td>
+            <div class="course-name">Web Development</div>
+            <div class="instructor">Instructor: Dr. Ahmed Al-Ali</div>
+            <a href="pdfs/web-development-notes.pdf" class="pdf-btn" target="_blank">View PDF</a>
+          </td>
         </tr>
         <tr>
-          <td><a href="data-analysis.html" class="subject-btn">Data Analysis 📚</a></td>
-          <td>Dr. Sarah Yusuf</td> 
+          <td>
+            <div class="course-name">Data Analysis</div>
+            <div class="instructor">Instructor: Dr. Sarah Yusuf</div>
+            <a href="pdfs/web-development-notes.pdf" class="pdf-btn" target="_blank">View PDF</a>
+          </td>
         </tr>
         <tr>
-          <td><a href="algorithms.html" class="subject-btn">Algorithms 🧮</a></td>
-          <td>Dr. Khaled Jassim</td>
+          <td>
+            <div class="course-name">Algorithms</div>
+            <div class="instructor">Instructor: Dr. Khaled Jassim</div>
+            <a href="pdfs/web-development-notes.pdf" class="pdf-btn" target="_blank">View PDF</a>
+          </td>
         </tr>
         <tr>
-          <td><a href="networks.html" class="subject-btn">Networks 🌐</a></td>
-          <td>Dr. Fatima Mubarak</td>
+          <td>
+            <div class="course-name">Networks</div>
+            <div class="instructor">Instructor: Dr. Fatima Mubarak</div>
+            <a href="pdfs/web-development-notes.pdf" class="pdf-btn" target="_blank">View PDF</a>
+          </td>
         </tr>
         <tr>
-          <td><a href="machine-learning.html" class="subject-btn">Machine Learning 💡</a></td>
-          <td>Dr. Ali Mohammed</td>
+          <td>
+            <div class="course-name">Machine Learning</div>
+            <div class="instructor">Instructor: Dr. Ali Mohammed</div>
+            <a href="pdfs/web-development-notes.pdf" class="pdf-btn" target="_blank">View PDF</a>
+          </td>
         </tr>
         <tr>
-          <td><a href="database-systems.html" class="subject-btn">Database Systems 🗂️</a></td>
-          <td>Dr. Layla Hassan</td>
+          <td>
+            <div class="course-name">Database Systems</div>
+            <div class="instructor">Instructor: Dr. Layla Hassan</div>
+            <a href="pdfs/web-development-notes.pdf" class="pdf-btn" target="_blank">View PDF</a>
+          </td>
         </tr>
         <tr>
-          <td><a href="software-engineering.html" class="subject-btn">Software Engineering 🛠️</a></td>
-          <td>Dr. Nader Kamal</td>
+          <td>
+            <div class="course-name">Software Engineering</div>
+            <div class="instructor">Instructor: Dr. Nader Kamal</div>
+            <a href="pdfs/web-development-notes.pdf" class="pdf-btn" target="_blank">View PDF</a>
+          </td>
         </tr>
         <tr>
-
-          <td><a href="artificial-intelligence.html" class="subject-btn">Artificial Intelligence 🤖</a></td>
-          <td>Dr. Mona Zayed</td>
+          <td>
+            <div class="course-name">Artificial Intelligence</div>
+            <div class="instructor">Instructor: Dr. Mona Zayed</div>
+            <a href="pdfs/web-development-notes.pdf" class="pdf-btn" target="_blank">View PDF</a>
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
+
 
   <footer class="footer">
     &copy; 2025 University of Bahrain - Course Notes
   </footer>
 
   <!-- Back Button -->
-<a href="index.html" class="back-btn">&#8592; Back to Home</a>
+  <a href="index.html" class="back-btn">&#8592; Back to Home</a>
+
+  
+  <script>
+    function toggleSlider() {
+      const slider = document.getElementById('slider');
+      if (slider.style.left === '0px') {
+        slider.style.left = '-180px';
+      } else {
+        slider.style.left = '0px';
+      }
+    }
+
+    
+    function filterCourses() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const rows = document.querySelectorAll("table tbody tr");
+
+      rows.forEach(row => {
+        const courseName = row.querySelector(".course-name").textContent.toLowerCase();
+        row.style.display = courseName.includes(input) ? '' : 'none';
+      });
+    }
+
+  
+    window.addEventListener('click', function(event) {
+      const slider = document.getElementById('slider');
+      const menu = document.querySelector('.menu');
+      if (event.target !== menu && event.target !== slider && !slider.contains(event.target)) {
+        slider.style.left = '-180px';
+      }
+    });
+  </script>
 
 </body>
 </html>

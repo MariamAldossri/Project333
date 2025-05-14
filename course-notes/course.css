@@ -10,14 +10,63 @@ body {
   margin: 0;
 }
 
-.header {
-  background: linear-gradient(135deg, #6f42c1, #d63384);
-  padding: 20px;
-  text-align: center;
+.main-header {
+  background: linear-gradient(to right, #6b46c1, #ed64a6);
   color: white;
+  padding: 20px 0;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  flex-wrap: wrap;
+}
+
+.site-title {
   font-size: 28px;
   font-weight: bold;
+  margin-left: -10px;
 }
+
+
+.nav-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-header {
+  background-color: rgb(246, 199, 243);
+  color: #6f42c1;
+  padding: 4px 12px;       /* Button padding */
+  border-radius: 10px;      /* Corner radius */
+  font-size: 11px;         /* Font size */
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  margin-right: 0.2px;       /* Reduced space between buttons */
+}
+
+.btn-header {
+  background-color: rgb(246, 199, 243);
+  color: #6f42c1;
+  padding: 4px 12px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.btn-header:hover {
+  background-color: #f3e8ff;
+}
+
+
 
 .menu {
   font-size: 30px;
@@ -99,6 +148,7 @@ body {
 
 .container {
   padding: 20px;
+  flex: 1; 
 }
 
 table {
@@ -132,6 +182,12 @@ tr:last-child td {
   font-size: 16px;
   color: #888;
 }
+.announcement {
+  font-size: 14px;
+  color: #888;
+  margin-top: 5px;
+}
+
 
 
 .footer {

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Study Group Finder</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-gray-100">
+  <header class="bg-gradient-to-r from-purple-700 to-pink-500 text-white">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between">
+      <h1 class="text-4xl font-bold text-center md:text-left mb-4 md:mb-0">Study Group Finder</h1>
+<nav class="flex flex-wrap justify-center gap-4">
+  <a href="home.html" class="btn-header">Home</a>
+  <a href="course.html" class="btn-header">Course Notes</a>
+  <a href="CourseReview.html" class="btn-header">Course Review</a>
+  <a href="events.html" class="btn-header">Events Calendar</a>
+  <a href="club-activities.html" class="btn-header">Club Activites</a>
+  <a href="campus-news.html" class="btn-header">Campus News</a>
+  <a href="market.html" class="btn-header">Student Marketplace</a>
+</nav>
+    </div>
+  </header>
+
+  <main class="p-6">
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+      <div>
+        <label class="block font-semibold mb-1">Search by Subject</label>
+        <input id="searchInput" type="text" placeholder="e.g. Web Development" class="p-3 border rounded w-full" autocomplete="off" />
+        <ul id="suggestions" class="bg-white border rounded shadow mt-1 hidden absolute z-10"></ul>
+      </div>
+      <div>
+        <label class="block font-semibold mb-1">Filter by Subject</label>
+        <select id="filterSubject" class="p-3 border rounded w-full">
+          <option value="">All Subjects</option>
+          <option>Math</option>
+          <option>Web Development</option>
+          <option>Mobile Application Development</option>
+          <option>Cloud Computing</option>
+          <option>Internet of Thing (IoT)</option>
+          <option>Human Computer Interaction (HCI)</option>
+          <option>Big Data Analytics</option>
+          <option>Computer Architecture</option>
+          <option>IT Governance</option>
+          <option>Network Security</option>
+          <option>Ethical Hacking</option>
+          <option>Enterprise System</option>
+        </select>
+      </div>
+      <div>
+        <label class="block font-semibold mb-1">Filter by Days</label>
+        <select id="filterDay" class="p-3 border rounded w-full">
+          <option value="">All Days</option>
+          <option>Sunday</option>
+          <option>Monday</option>
+          <option>Tuesday</option>
+          <option>Wednesday</option>
+          <option>Thursday</option>
+        </select>
+      </div>
+    </section>
+    <section> <label class="block font-semibold 18px">Study Groups</label></section>
+    <div class="my-4">
+  <button id="viewAddedBtn" class="btn-primary p-3 rounded">My Added Groups</button>
+</div>
+
+<!-- قائمة المجموعات المضافة -->
+<section id="addedGroupsSection" class="hidden mt-6">
+  <h2 class="text-xl font-bold mb-4">My Groups</h2>
+  <ul id="addedGroupsList" class="space-y-2"></ul>
+</section>
+
+
+    <section id="groupList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></section>
+    <section class="mb-6">
+ 
+</section>
+
+<!-- Display area for added groups -->
+<section id="addedGroupsSection" class="hidden mb-8">
+  <h2 class="text-xl font-bold mb-4">My Added Groups</h2>
+  <ul id="addedGroupsList" class="space-y-4"></ul>
+</section>
+
+     
+  </main>
+<!-- Detail View Section -->
+<section id="detailView" class="hidden mt-10">
+  <article class="bg-white p-6 rounded shadow-md">
+    <h2 id="detailTitle" class="text-2xl font-bold mb-2"></h2>
+    <p id="detailInfo" class="mb-4 text-gray-700"></p>
+        <button id="addCourseBtn" class="btn-primary p-3 rounded mb-4 hidden">+ Add Course</button>
+
+    <button id="backBtn" class="btn-info p-2 rounded">← Back to List</button>
+    
+  </article>
+</section>
+
+  <footer class="p-6 text-center bg-gray-200 mt-12">
+    <p>&copy; 2025 Campus Hub. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

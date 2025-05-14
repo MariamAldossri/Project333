@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>student market place</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>student market</h1>
+    <input type="text" id="search" placeholder="search for an item" />
+    <select id="sort">
+      <option value="">sort by</option>
+      <option value="price-asc">price:less to high </option>
+      <option value="price-asc">price:high to less</option>
+    </select>
+  </header>
+
+  <main>
+    <div id="loading" class="loading">loading...</div>
+    <div id="item-list" class="item-list"></div>
+    <div id="pagination" class="pagination"></div>
+  </main>
+
+  <section class="form-section">
+    <h2>add new item</h2>
+    <form id="form">
+      <input type="text" id="title" placeholder="item name" required />
+      <input type="text" id="price" placeholder="price" required />
+      <textarea id="description" placeholder="description of item" required></textarea>
+      <button type="submit">add</button>
+    </form>
+  </section>
+<script src="app.js"></script>
+</body>
+</html>

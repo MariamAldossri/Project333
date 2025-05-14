@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Calendar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Events Calendar</h1>
+    </header>
+
+    <main class="container mt-4">
+        <section class="mb-4">
+            <h2>Events Listing</h2>
+            <div class="d-flex justify-content-between mb-3">
+                <input type="text" class="form-control w-50" placeholder="Search events..." aria-label="Search">
+                <div>
+                    <button class="btn btn-info">Sort by Date</button>
+                    <button class="btn btn-info">Sort by Popularity</button>
+                    <button class="btn btn-success">Add New Event</button>
+                </div>
+            </div>
+
+            
+            <div class="row"></div>
+
+            
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">Previous</a></li>
+                    <li class="page-item">1</a></li>
+                    <li class="page-item">2</a></li>
+                    <li class="page-item">3</a></li>
+                    <li class="page-item">Next</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <section>
+
+            <h2>Create New Event</h2>
+            <form action="#" method="post" class="border p-4">
+                <div class="form-group">
+                    <label for="eventTitle">Event Title <span class="text-danger">*</span></label>
+                    <input type="text" id="eventTitle" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventDate">Date <span class="text-danger">*</span></label>
+                    <input type="date" id="eventDate" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventLocation">Location <span class="text-danger">*</span></label>
+                    <input type="text" id="eventLocation" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="eventDescription">Description</label>
+                    <textarea id="eventDescription" class="form-control" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+                <a href="#" class="btn btn-secondary">Cancel</a>
+            </form>
+        </section>
+    </main>
+
+    <footer class="bg-light text-center p-3 mt-4">
+        <p>&copy; 2025 Events Calendar. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="events.js"></script>
+
+
+</body>
+</html>

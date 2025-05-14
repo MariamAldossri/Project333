@@ -1,0 +1,10 @@
+[
+  { "name": "Math Masters", "subject": "Math", "day": "Monday", "time": "5PM" },
+  { "name": "Web Dev Warriors", "subject": "Web Development", "day": "Tuesday", "time": "2PM" },
+  { "name": "Mobile Coders", "subject": "Mobile Application Development", "day": "Wednesday", "time": "11AM" },
+  { "name": "Cloud Gurus", "subject": "Cloud Computing", "day": "Thursday", "time": "3PM" },
+  { "name": "IoT Innovators", "subject": "Internet of Thing (IoT)", "day": "Friday", "time": "10AM" },
+  { "name": "HCI Hackers", "subject": "Human Computer Interaction (HCI)", "day": "Saturday", "time": "4PM" },
+  { "name": "Big Data Brains", "subject": "Big Data Analytics", "day": "Sunday", "time": "1PM" },
+  { "name": "Cyber Knights", "subject": "Network Security", "day": "Monday", "time": "9AM" }
+]

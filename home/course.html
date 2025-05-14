@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Course Notes</title>
+  <link rel="stylesheet" href="course.css">
+</head>
+
+<body>
+
+
+  <div class="header">
+    <div class="menu" onclick="toggleSlider()">☰</div>
+    <h1>Course Notes</h1>
+  </div>
+
+
+  <div class="slider" id="slider">
+    <ul>
+      <li><a href="#">Events Calendar</a></li>
+      <li><a href="#">Study Group Finder</a></li>
+      <li><a href="#">Course Reviews</a></li>
+      <li><a href="#">Course Notes</a></li>
+      <li><a href="#">Campus News</a></li>
+      <li><a href="#">Club Activities</a></li>
+      <li><a href="#">Student Marketplace</a></li>
+    </ul>
+  </div>
+
+
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search Course..." onkeyup="filterCourses()" />
+  </div>
+
+
+  <div class="container">
+    <table class="subjects-table">
+      <tbody>
+        <tr>
+          <td>
+            <div class="course-name">Web Development</div>
+            <div class="instructor">Instructor: Dr. Ahmed Al-Ali</div>
+            <a href="pdfs/web-development-notes.pdf" class="pdf-btn" target="_blank">View PDF</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="course-name">Data Analysis</div>
+            <div class="instructor">Instructor: Dr. Sarah Yusuf</div>
+            <a href="pdfs/web-development-notes.pdf" class="pdf-btn" target="_blank">View PDF</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="course-name">Algorithms</div>
+            <div class="instructor">Instructor: Dr. Khaled Jassim</div>
+            <a href="pdfs/web-development-notes.pdf" class="pdf-btn" target="_blank">View PDF</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="course-name">Networks</div>
+            <div class="instructor">Instructor: Dr. Fatima Mubarak</div>
+            <a href="pdfs/web-development-notes.pdf" class="pdf-btn" target="_blank">View PDF</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="course-name">Machine Learning</div>
+            <div class="instructor">Instructor: Dr. Ali Mohammed</div>
+            <a href="pdfs/web-development-notes.pdf" class="pdf-btn" target="_blank">View PDF</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="course-name">Database Systems</div>
+            <div class="instructor">Instructor: Dr. Layla Hassan</div>
+            <a href="pdfs/web-development-notes.pdf" class="pdf-btn" target="_blank">View PDF</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="course-name">Software Engineering</div>
+            <div class="instructor">Instructor: Dr. Nader Kamal</div>
+            <a href="pdfs/web-development-notes.pdf" class="pdf-btn" target="_blank">View PDF</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="course-name">Artificial Intelligence</div>
+            <div class="instructor">Instructor: Dr. Mona Zayed</div>
+            <a href="pdfs/web-development-notes.pdf" class="pdf-btn" target="_blank">View PDF</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <footer class="footer">
+    &copy; 2025 University of Bahrain - Course Notes
+  </footer>
+
+  <!-- Back Button -->
+  <a href="index.html" class="back-btn">&#8592; Back to Home</a>
+
+  
+  <script>
+    function toggleSlider() {
+      const slider = document.getElementById('slider');
+      if (slider.style.left === '0px') {
+        slider.style.left = '-180px';
+      } else {
+        slider.style.left = '0px';
+      }
+    }
+
+    
+    function filterCourses() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const rows = document.querySelectorAll("table tbody tr");
+
+      rows.forEach(row => {
+        const courseName = row.querySelector(".course-name").textContent.toLowerCase();
+        row.style.display = courseName.includes(input) ? '' : 'none';
+      });
+    }
+
+  
+    window.addEventListener('click', function(event) {
+      const slider = document.getElementById('slider');
+      const menu = document.querySelector('.menu');
+      if (event.target !== menu && event.target !== slider && !slider.contains(event.target)) {
+        slider.style.left = '-180px';
+      }
+    });
+  </script>
+
+</body>
+</html>

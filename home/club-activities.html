@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Club Activities</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+  <link rel="stylesheet" href="club.css" />
+</head>
+<body class="bg-gray-100">
+
+  <header class="bg-gradient-to-r from-purple-700 to-pink-500 text-white">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between">
+      <h1 class="text-3xl font-bold text-center md:text-left mb-4 md:mb-0">Club Activities</h1>
+     <nav class="flex flex-wrap justify-center gap-4">
+  <a href="home.html" class="btn-header">Home</a>
+  <a href="course.html" class="btn-header">Course Notes</a>
+  <a href="CourseReview.html" class="btn-header">Course Review</a>
+  <a href="events.html" class="btn-header">Events Calendar</a>
+  <a href="club-activities.html" class="btn-header">Club Activites</a>
+  <a href="campus-news.html" class="btn-header">Campus News</a>
+  <a href="market.html" class="btn-header">Student Marketplace</a>
+</nav>
+    </div>
+  </header>
+
+  <main class="p-6 max-w-7xl mx-auto">
+    <section class="mb-6">
+      <input id="searchInput" type="text" placeholder="Search clubs..." class="p-3 border rounded w-full md:w-1/3" />
+    </section>
+
+    <section class="mb-6">
+      <select id="filterType" class="p-3 border rounded w-full md:w-1/4">
+        <option value="">All Types</option>
+        <option>Sports</option>
+        <option>Technology</option>
+        <option>Culture</option>
+        <option>Volunteering</option>
+      </select>
+    </section>
+
+    <section id="clubList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></section>
+  </main>
+
+  <footer class="p-6 text-center bg-gray-200 mt-12">
+    <p>&copy; 2025 Campus Hub. All rights reserved.</p>
+  </footer>
+
+  <script src="club.js"></script>
+</body>
+</html>

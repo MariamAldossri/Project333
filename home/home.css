@@ -1,0 +1,23 @@
+/* home.css */
+.btn-header {
+  background-color: rgb(246, 199, 243);
+  color: #6f42c1;
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+.btn-header:hover {
+  background-color: #f3e8ff;
+}
+
+.btn-primary {
+  background-color: #6f42c1;
+  color: white;
+  transition: background-color 0.3s;
+}
+.btn-primary:hover {
+  background-color: #5936a2;
+}

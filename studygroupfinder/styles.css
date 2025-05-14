@@ -39,3 +39,86 @@
     transform: translateY(-5px);
   }
   
+  .btn-header {
+    background-color: rgb(246, 199, 243);
+    color: #6f42c1;
+    padding: 4px 12px;       /* Button padding */
+    border-radius: 10px;      /* Corner radius */
+    font-size: 11px;         /* Font size */
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin-right: 0.2px;       /* Reduced space between buttons */
+  }
+  
+  .btn-header:last-child {
+    margin-right: 0;
+  }
+  
+  .btn-header:hover {
+    background-color: #f3e8ff;
+  }
+
+  /* Ensure the body takes full height */
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+/* Use flexbox for the body to push content to the bottom */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space between content and footer */
+}
+
+/* Footer styling */
+footer {
+  background-color: #e2e8f0; /* Light gray background */
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  margin-top: 12px;
+}
+#suggestions {
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Pagination container above footer with spacing */
+.pagination-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 69px; /* ~3cm */
+}
+
+/* Pagination flex layout */
+.pagination {
+  display: flex;
+  gap: 19px;
+  align-items: center;
+}
+
+/* Page info text styling */
+.page-info {
+  font-size: 14px;
+  color: #374151; /* Tailwind's gray-700 */
+  font-weight: 500;
+}
+
+/* Pagination button styling */
+.btn-info {
+  background-color: #f499ca;
+  color: white;
+  padding: 9px 9px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-info:hover {
+  background-color: #31d2f2;
+}

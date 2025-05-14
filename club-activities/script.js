@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const detailsSection = document.getElementById("details")
   const pagination = document.querySelector(".pagination")
   const BASE_API_URL =
-    "https://455bd13e-1e37-46a3-a804-c14e07a6bd7d-00-35yx9vpg7td4l.sisko.replit.dev/"
+    "https://455bd13e-1e37-46a3-a804-c14e07a6bd7d-00-35yx9vpg7td4l.sisko.replit.dev"
 
   let activities = []
   let filteredActivities = []

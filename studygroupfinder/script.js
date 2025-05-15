@@ -1,5 +1,5 @@
-// ✅ script.js
 
+// ✅ script.js
 
 const groups = [
   { name: "Math Masters", subject: "Math", day: "Monday", time: "5PM" },
@@ -11,6 +11,8 @@ const groups = [
   { name: "Big Data Brains", subject: "Big Data Analytics", day: "Sunday", time: "1PM" },
   { name: "Cyber Knights", subject: "Network Security", day: "Monday", time: "9AM" }
 ];
+
+// (You can copy and paste your original JS code here unchanged.)
 
 const groupList = document.getElementById("groupList");
 const searchInput = document.getElementById("searchInput");
@@ -38,55 +40,81 @@ function convertTo24(timeStr) {
 function renderGroups() {
   groupList.innerHTML = "";
   const viewAddedBtn = document.getElementById("viewAddedBtn");
-const addedGroupsSection = document.getElementById("addedGroupsSection");
-const addedGroupsList = document.getElementById("addedGroupsList");
+  const addedGroupsSection = document.getElementById("addedGroupsSection");
+  const addedGroupsList = document.getElementById("addedGroupsList");
 
-// عندما تضغط على Add Course
-addCourseBtn.addEventListener("click", () => {
-  const currentGroup = detailTitle.textContent;
-  let stored = JSON.parse(localStorage.getItem("myGroups")) || [];
-  if (!stored.includes(currentGroup)) {
-    stored.push(currentGroup);
-    localStorage.setItem("myGroups", JSON.stringify(stored));
-    alert("Group added!");
-  } else {
-    alert("Already added.");
-  }
-});
-
-// عرض المجموعات المحفوظة
-viewAddedBtn.addEventListener("click", () => {
-  const stored = JSON.parse(localStorage.getItem("myGroups")) || [];
-  addedGroupsList.innerHTML = "";
-
-  if (stored.length === 0) {
-    addedGroupsList.innerHTML = "<p class='text-gray-500'>No groups added yet.</p>";
-  } else {
-    stored.forEach(name => {
-      const li = document.createElement("li");
-      li.className = "flex justify-between items-center bg-white p-3 rounded shadow";
-      li.innerHTML = `
-        <span>${name}</span>
-        <button class="btn-info px-3 py-1 rounded" data-name="${name}">Delete</button>
-      `;
-      addedGroupsList.appendChild(li);
-    });
-  }
-
-  addedGroupsSection.classList.remove("hidden");
-});
-
-// حذف مجموعة من القائمة
-addedGroupsList.addEventListener("click", (e) => {
-  if (e.target.tagName === "BUTTON") {
-    const name = e.target.dataset.name;
+  addCourseBtn.addEventListener("click", () => {
+    const currentGroup = detailTitle.textContent;
     let stored = JSON.parse(localStorage.getItem("myGroups")) || [];
-    stored = stored.filter(g => g !== name);
-    localStorage.setItem("myGroups", JSON.stringify(stored));
-    e.target.parentElement.remove();
-  }
-});
 
+    if (!stored.includes(currentGroup)) {
+      stored.push(currentGroup);
+      localStorage.setItem("myGroups", JSON.stringify(stored));
+      alert("Group added!");
+
+      const group = {
+        name: detailTitle.textContent,
+        subject: detailInfo.textContent.split(" — ")[0],
+        day: detailInfo.textContent.split(" — ")[1].split(" at ")[0].trim(),
+        time: detailInfo.textContent.split(" at ")[1].trim(),
+      };
+
+      fetch("create-group.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(group)
+      })
+      .then(res => res.json())
+      .then(result => {
+        if (result.status === "success") {
+          console.log("Group saved to database ✅");
+        } else {
+          console.error(result);
+          alert("Failed to save to database ❌");
+        }
+      })
+      .catch(error => {
+        console.error("Fetch error:", error);
+        alert("Error connecting to server.");
+      });
+
+    } else {
+      alert("Already added.");
+    }
+  });
+
+  viewAddedBtn.addEventListener("click", () => {
+    const stored = JSON.parse(localStorage.getItem("myGroups")) || [];
+    addedGroupsList.innerHTML = "";
+
+    if (stored.length === 0) {
+      addedGroupsList.innerHTML = "<p class='text-gray-500'>No groups added yet.</p>";
+    } else {
+      stored.forEach(name => {
+        const li = document.createElement("li");
+        li.className = "flex justify-between items-center bg-white p-3 rounded shadow";
+        li.innerHTML = `
+          <span>${name}</span>
+          <button class="btn-info px-3 py-1 rounded" data-name="${name}">Delete</button>
+        `;
+        addedGroupsList.appendChild(li);
+      });
+    }
+
+    addedGroupsSection.classList.remove("hidden");
+  });
+
+  addedGroupsList.addEventListener("click", (e) => {
+    if (e.target.tagName === "BUTTON") {
+      const name = e.target.dataset.name;
+      let stored = JSON.parse(localStorage.getItem("myGroups")) || [];
+      stored = stored.filter(g => g !== name);
+      localStorage.setItem("myGroups", JSON.stringify(stored));
+      e.target.parentElement.remove();
+    }
+  });
 
   const searchQuery = searchInput.value.toLowerCase();
   const selectedSubject = filterSubject.value;
@@ -214,3 +242,26 @@ filterDay.addEventListener("change", renderGroups);
 
 renderGroups();
 
+function addGroup(group) {
+  fetch("create-group.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(group)
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.status === "success") {
+      alert("Group added!");
+      fetchGroups();
+    }
+  });
+}
+
+function fetchGroups() {
+  fetch("get-groups.php")
+    .then(res => res.json())
+    .then(data => {
+      groups = data;
+      renderGroups();
+    });
+}

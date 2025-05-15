@@ -120,6 +120,7 @@ eventForm.addEventListener('submit', function (e) {
     const title = document.getElementById('eventTitle').value.trim();
     const date = document.getElementById('eventDate').value.trim();
     const location = document.getElementById('eventLocation').value.trim();
+    const description = document.getElementById('eventDescription').value.trim();
 
     if (!title || !date || !location) {
         alert('Please fill all required fields!');
@@ -131,8 +132,29 @@ eventForm.addEventListener('submit', function (e) {
         return;
     }
 
-    alert('Event successfully validated (not submitted).');
+    // Create new event object
+    const newEvent = {
+        id: eventsData.length + 1,
+        title,
+        date,
+        location,
+        description,
+        popularity: 0 // default popularity
+    };
+
+    // Add to the main data array and refresh view
+    eventsData.push(newEvent);
+    filteredData = [...eventsData];
+    currentPage = 1;
+
+    renderEvents();
+    renderPagination();
+
+    // Clear form and show message
+    eventForm.reset();
+    alert('Event successfully added!');
 });
+
 
 
 // Initialize

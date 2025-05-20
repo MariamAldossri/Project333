@@ -1,129 +1,523 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Course Notes</title>
-  <link rel="stylesheet" href="course.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+  <style>
+    .btn-primary {
+      background-color: #6f42c1;
+      color: white;
+      transition: background-color 0.3s;
+    }
+    .btn-primary:hover {
+      background-color: #5936a2;
+    }
+
+    .btn-success {
+      background-color: #198754;
+      color: white;
+      transition: background-color 0.3s;
+    }
+    .btn-success:hover {
+      background-color: #146c43;
+    }
+
+    .btn-info {
+      background-color: #f499ca;
+      color: white;
+      padding: 9px 9px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .btn-info:hover {
+      background-color: #31d2f2;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .btn-header {
+      background-color: rgb(246, 199, 243);
+      color: #6f42c1;
+      padding: 4px 12px;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 0.3s;
+      margin-right: 0.2px;
+    }
+
+    .btn-header:last-child {
+      margin-right: 0;
+    }
+
+    .btn-header:hover {
+      background-color: #f3e8ff;
+    }
+
+    body, html {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    footer {
+      background-color: #e2e8f0;
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.875rem;
+      margin-top: 12px;
+    }
+
+    #suggestions {
+      max-height: 200px;
+      overflow-y: auto;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .pagination-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 69px;
+    }
+
+    .pagination {
+      display: flex;
+      gap: 19px;
+      align-items: center;
+    }
+
+    .page-info {
+      font-size: 14px;
+      color: #374151;
+      font-weight: 500;
+    }
+
+    #assignmentList li {
+      border-left: 4px solid #6f42c1;
+      padding-left: 1rem;
+    }
+
+    #noteInput {
+      min-height: 100px;
+      resize: vertical;
+    }
+  </style>
 </head>
+<body class="bg-gray-100">
+  <header class="bg-gradient-to-r from-purple-700 to-pink-500 text-white">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between">
+      <h1 class="text-4xl font-bold text-center md:text-left mb-4 md:mb-0">Course Notes</h1>
+      <nav class="flex flex-wrap justify-center gap-4">
+        <a href="home.html" class="btn-header">Home</a>
+        <a href="course.html" class="btn-header">Course Notes</a>
+        <a href="CourseReview.html" class="btn-header">Course Review</a>
+        <a href="events.html" class="btn-header">Events Calendar</a>
+        <a href="club-activities.html" class="btn-header">Club Activities</a>
+        <a href="campus-news.html" class="btn-header">Campus News</a>
+        <a href="market.html" class="btn-header">Student Marketplace</a>
+      </nav>
+    </div>
+  </header>
 
-<body>
+  <main class="p-6">
+    <!-- Filters Section -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+      <div>
+        <label class="block font-semibold mb-1">Search by Subject</label>
+        <input id="searchInput" type="text" placeholder="e.g. Web Development" class="p-3 border rounded w-full" autocomplete="off" />
+        <ul id="suggestions" class="bg-white border rounded shadow mt-1 hidden absolute z-10"></ul>
+      </div>
+      <div>
+        <label class="block font-semibold mb-1">Filter by Subject</label>
+        <select id="filterSubject" class="p-3 border rounded w-full">
+          <option value="">All Subjects</option>
+          <option>Math</option>
+          <option>Web Development</option>
+          <option>Mobile Application Development</option>
+          <option>Cloud Computing</option>
+          <option>Internet of Things (IoT)</option>
+          <option>Human Computer Interaction (HCI)</option>
+          <option>Big Data Analytics</option>
+          <option>Network Security</option>
+        </select>
+      </div>
+      <div>
+        <label class="block font-semibold mb-1">Filter by Note Type</label>
+        <select id="filterType" class="p-3 border rounded w-full">
+          <option value="">All Types</option>
+          <option>Lecture Notes</option>
+          <option>Summary</option>
+          <option>Cheat Sheet</option>
+          <option>Practice Problems</option>
+        </select>
+      </div>
+    </section>
 
-  <header class="main-header">
-  <div class="header-content">
-    <h1 class="site-title">Course Notes</h1>
+    <!-- Course Notes Section -->
+    <section>
+      <label class="block font-semibold text-lg">Course Notes</label>
+    </section>
+    <div class="my-4">
+      <button id="viewAddedNotesBtn" class="btn-primary p-3 rounded">My Saved Notes</button>
+    </div>
+    <section id="addedNotesSection" class="hidden mt-6">
+      <h2 class="text-xl font-bold mb-4">My Saved Notes</h2>
+      <ul id="addedNotesList" class="space-y-2"></ul>
+    </section>
+    <section id="noteList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></section>
 
-    <nav class="nav-links">
-      <a href="home.html" class="btn-header">Home</a>
-      <a href="course-notes.html" class="btn-header">Course Notes</a>
-      <a href="course-review.html" class="btn-header">Course Review</a>
-      <a href="events-calendar.html" class="btn-header">Events Calendar</a>
-      <a href="club-activites.html" class="btn-header">Club Activites</a>
-      <a href="campus-news.html" class="btn-header">Campus News</a>
-      <a href="student-marketplace.html" class="btn-header">Student Marketplace</a>
-    </nav>
-  </div>
-</header>
+    <!-- Detail View Section -->
+    <section id="detailView" class="hidden mt-10">
+      <article class="bg-white p-6 rounded shadow-md">
+        <h2 id="detailTitle" class="text-2xl font-bold mb-2"></h2>
+        <p id="detailInfo" class="mb-4 text-gray-700"></p>
+        <h3 class="text-lg font-semibold mb-2">Assignments</h3>
+        <ul id="assignmentList" class="space-y-2 mb-4"></ul>
+        <h3 class="text-lg font-semibold mb-2">My Notes</h3>
+        <textarea id="noteInput" class="w-full p-2 border rounded mb-4" placeholder="Add your notes here..."></textarea>
+        <button id="addNoteBtn" class="btn-primary p-3 rounded mb-4">+ Add Note</button>
+        <button id="backBtn" class="btn-info p-2 rounded">← Back to List</button>
+      </article>
+    </section>
 
+    <!-- Pagination -->
+    <div class="pagination-container">
+      <div class="pagination">
+        <button id="prevPageBtn" class="btn-info">Previous</button>
+        <span id="pageInfo" class="page-info">Page 1</span>
+        <button id="nextPageBtn" class="btn-info">Next</button>
+      </div>
+    </div>
+  </main>
 
-  <div class="search-box">
-    <input type="text" id="searchInput" placeholder="Search Course..." onkeyup="filterCourses()" />
-  </div>
-
-
-  <div class="container">
-    <table class="subjects-table">
-      <tbody>
-        <tr>
-          <td>
-            <div class="course-name">Web Development</div>
-            <div class="instructor">Instructor: Dr. Ahmed Al-Ali</div>
-            <a href="pdfs/web-development-notes.pdf" class="pdf-btn" target="_blank">Dismiss</a>
-            <a href="pdfs/web-development-notes.pdf" class="pdf-btn" target="_blank">View</a>
-            <div class="announcement">Data: 07-05-2025</div>
-            <div class="announcement">Time: 11:00 AM</div>
-          </td>
-        </tr>
-          <td>
-            <div class="course-name">Algorithms</div>
-            <div class="instructor">Instructor: Dr. Khaled Jassim</div>
-            <a href="pdfs/web-development-notes.pdf" class="pdf-btn" target="_blank">Dismiss</a>
-            <a href="pdfs/web-development-notes.pdf" class="pdf-btn" target="_blank">View</a>
-            <div class="announcement">Date: 08-05-2025</div>
-            <div class="announcement">Time: 1:45 PM</div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="course-name">Networks</div>
-            <div class="instructor">Instructor: Dr. Fatima Mubarak</div>
-            <a href="pdfs/web-development-notes.pdf" class="pdf-btn" target="_blank">Dismiss</a>
-            <a href="pdfs/web-development-notes.pdf" class="pdf-btn" target="_blank">View</a>
-            <div class="announcement">Date: 12-05-2025</div>
-            <div class="announcement">Time: 10:00 AM</div>
-           
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="course-name">Machine Learning</div>
-            <div class="instructor">Instructor: Dr. Ali Mohammed</div>
-            <a href="pdfs/web-development-notes.pdf" class="pdf-btn" target="_blank">Dismiss</a>
-            <a href="pdfs/web-development-notes.pdf" class="pdf-btn" target="_blank">View</a>
-            <div class="announcement">Date: 09-05-2025</div>
-            <div class="announcement">Time: 9:15 AM</div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="course-name">Artificial Intelligence</div>
-            <div class="instructor">Instructor: Dr. Mona Zayed</div>
-            <a href="pdfs/web-development-notes.pdf" class="pdf-btn" target="_blank">Dismiss</a>
-            <a href="pdfs/web-development-notes.pdf" class="pdf-btn" target="_blank">View</a>
-            <div class="announcement">Date: 08-05-2025</div>
-            <div class="announcement">Time: 1:45 PM</div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <footer class="footer">
-    <p class="font-semibold">© 2025 Campus Hub. All rights reserved.</p>
+  <footer class="p-6 text-center bg-gray-200 mt-12">
+    <p>© 2025 Campus Hub. All rights reserved.</p>
   </footer>
 
-  <!-- Back Button -->
-  <a href="index.html" class="back-btn">&#8592; Back to Home</a>
-
-  
   <script>
-    function toggleSlider() {
-      const slider = document.getElementById('slider');
-      if (slider.style.left === '0px') {
-        slider.style.left = '-180px';
-      } else {
-        slider.style.left = '0px';
+    // Data for Course Notes
+    const notes = [
+      {
+        title: "Math Masters Notes",
+        subject: "Math",
+        type: "Lecture Notes",
+        description: "Comprehensive notes on calculus and algebra.",
+        assignments: [
+          { name: "Calculus Quiz 1", dueDate: "2025-05-25", details: "Covers derivatives and integrals." },
+          { name: "Algebra Assignment", dueDate: "2025-06-01", details: "Solve 20 problems on linear equations." }
+        ]
+      },
+      {
+        title: "Web Dev Basics",
+        subject: "Web Development",
+        type: "Summary",
+        description: "Key concepts of HTML, CSS, and JavaScript.",
+        assignments: [
+          { name: "Portfolio Website", dueDate: "2025-06-10", details: "Build a personal portfolio using HTML and CSS." }
+        ]
+      },
+      {
+        title: "Mobile App Guide",
+        subject: "Mobile Application Development",
+        type: "Cheat Sheet",
+        description: "Quick reference for Android and iOS development.",
+        assignments: [
+          { name: "App Prototype", dueDate: "2025-06-15", details: "Create a basic app UI in Flutter." }
+        ]
+      },
+      {
+        title: "Cloud Computing 101",
+        subject: "Cloud Computing",
+        type: "Lecture Notes",
+        description: "Introduction to AWS, Azure, and GCP.",
+        assignments: [
+          { name: "AWS Setup", dueDate: "2025-05-30", details: "Deploy a simple app on AWS EC2." }
+        ]
+      },
+      {
+        title: "IoT Protocols",
+        subject: "Internet of Things (IoT)",
+        type: "Practice Problems",
+        description: "Exercises on MQTT and CoAP protocols.",
+        assignments: [
+          { name: "IoT Simulation", dueDate: "2025-06-05", details: "Simulate an IoT device using MQTT." }
+        ]
+      },
+      {
+        title: "HCI Principles",
+        subject: "Human Computer Interaction (HCI)",
+        type: "Summary",
+        description: "Core principles of user-centered design.",
+        assignments: [
+          { name: "UI Design Project", dueDate: "2025-06-20", details: "Design a user-friendly interface prototype." }
+        ]
+      },
+      {
+        title: "Big Data Tools",
+        subject: "Big Data Analytics",
+        type: "Cheat Sheet",
+        description: "Overview of Hadoop, Spark, and Kafka.",
+        assignments: [
+          { name: "Data Pipeline Task", dueDate: "2025-06-12", details: "Build a data pipeline using Spark." }
+        ]
+      },
+      {
+        title: "Network Security Essentials",
+        subject: "Network Security",
+        type: "Lecture Notes",
+        description: "Fundamentals of firewalls and encryption.",
+        assignments: [
+          { name: "Firewall Config", dueDate: "2025-05-28", details: "Configure a basic firewall rule set." }
+        ]
       }
-    }
+    ];
 
-    
-    function filterCourses() {
-      const input = document.getElementById('searchInput').value.toLowerCase();
-      const rows = document.querySelectorAll("table tbody tr");
+    // DOM elements
+    const noteList = document.getElementById("noteList");
+    const searchInput = document.getElementById("searchInput");
+    const suggestions = document.getElementById("suggestions");
+    const filterSubject = document.getElementById("filterSubject");
+    const filterType = document.getElementById("filterType");
+    const detailView = document.getElementById("detailView");
+    const detailTitle = document.getElementById("detailTitle");
+    const detailInfo = document.getElementById("detailInfo");
+    const assignmentList = document.getElementById("assignmentList");
+    const backBtn = document.getElementById("backBtn");
+    const addNoteBtn = document.getElementById("addNoteBtn");
+    const noteInput = document.getElementById("noteInput");
+    const viewAddedNotesBtn = document.getElementById("viewAddedNotesBtn");
+    const addedNotesSection = document.getElementById("addedNotesSection");
+    const addedNotesList = document.getElementById("addedNotesList");
+    const prevPageBtn = document.getElementById("prevPageBtn");
+    const nextPageBtn = document.getElementById("nextPageBtn");
+    const pageInfo = document.getElementById("pageInfo");
 
-      rows.forEach(row => {
-        const courseName = row.querySelector(".course-name").textContent.toLowerCase();
-        row.style.display = courseName.includes(input) ? '' : 'none';
+    // Pagination setup
+    const itemsPerPage = 3;
+    let currentPage = 1;
+    let savedNotes = JSON.parse(localStorage.getItem("savedNotes")) || {};
+
+    function renderNotes() {
+      noteList.innerHTML = "";
+
+      // Handle "My Saved Notes" button
+      viewAddedNotesBtn.addEventListener("click", () => {
+        addedNotesList.innerHTML = "";
+        const savedNoteTitles = Object.keys(savedNotes);
+
+        if (savedNoteTitles.length === 0) {
+          addedNotesList.innerHTML = "<p class='text-gray-500'>No notes saved yet.</p>";
+        } else {
+          savedNoteTitles.forEach(title => {
+            const li = document.createElement("li");
+            li.className = "flex justify-between items-center bg-white p-3 rounded shadow";
+            li.innerHTML = `
+              <span>${title} - ${savedNotes[title].note || "No notes"}</span>
+              <button class="btn-info px-3 py-1 rounded" data-title="${title}">Delete</button>
+            `;
+            addedNotesList.appendChild(li);
+          });
+        }
+
+        addedNotesSection.classList.remove("hidden");
+        noteList.classList.add("hidden");
+        detailView.classList.add("hidden");
       });
+
+      // Handle delete button clicks in saved notes
+      addedNotesList.addEventListener("click", (e) => {
+        if (e.target.tagName === "BUTTON") {
+          const title = e.target.dataset.title;
+          delete savedNotes[title];
+          localStorage.setItem("savedNotes", JSON.stringify(savedNotes));
+          e.target.parentElement.remove();
+          if (Object.keys(savedNotes).length === 0) {
+            addedNotesList.innerHTML = "<p class='text-gray-500'>No notes saved yet.</p>";
+          }
+        }
+      });
+
+      const searchQuery = searchInput.value.toLowerCase();
+      const selectedSubject = filterSubject.value;
+      const selectedType = filterType.value;
+
+      const filtered = notes.filter(note => {
+        const matchesSearch = note.subject.toLowerCase().includes(searchQuery) || note.title.toLowerCase().includes(searchQuery);
+        const matchesSubject = selectedSubject === "" || note.subject === selectedSubject;
+        const matchesType = selectedType === "" || note.type === selectedType;
+        return matchesSearch && matchesSubject && matchesType;
+      });
+
+      const totalPages = Math.ceil(filtered.length / itemsPerPage);
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+      const paginatedNotes = filtered.slice(startIndex, endIndex);
+
+      paginatedNotes.forEach(note => {
+        const card = document.createElement("div");
+        card.className = "card cursor-pointer";
+        card.innerHTML = `
+          <h3 class="text-xl font-bold mb-2">${note.title}</h3>
+          <p class="text-gray-600">${note.subject} - ${note.type}</p>
+        `;
+        card.addEventListener("click", () => showDetail(note));
+        noteList.appendChild(card);
+      });
+
+      pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+      prevPageBtn.disabled = currentPage === 1;
+      nextPageBtn.disabled = currentPage === totalPages || totalPages === 0;
     }
 
-  
-    window.addEventListener('click', function(event) {
-      const slider = document.getElementById('slider');
-      const menu = document.querySelector('.menu');
-      if (event.target !== menu && event.target !== slider && !slider.contains(event.target)) {
-        slider.style.left = '-180px';
+    function showDetail(note) {
+      detailTitle.textContent = note.title;
+      detailInfo.textContent = `${note.subject} — ${note.type} — ${note.description}`;
+      assignmentList.innerHTML = "";
+      noteInput.value = savedNotes[note.title]?.note || "";
+
+      if (note.assignments.length === 0) {
+        assignmentList.innerHTML = "<p class='text-gray-500'>No assignments available.</p>";
+      } else {
+        note.assignments.forEach(assignment => {
+          const li = document.createElement("li");
+          li.className = "bg-gray-100 p-3 rounded";
+          li.innerHTML = `
+            <strong>${assignment.name}</strong><br>
+            Due: ${assignment.dueDate}<br>
+            Details: ${assignment.details}
+          `;
+          assignmentList.appendChild(li);
+        });
+      }
+
+      detailView.classList.remove("hidden");
+      noteList.classList.add("hidden");
+      addNoteBtn.classList.remove("hidden");
+      addedNotesSection.classList.add("hidden");
+
+      addNoteBtn.onclick = () => {
+        const noteText = noteInput.value.trim();
+        if (noteText) {
+          savedNotes[note.title] = { note: noteText };
+          localStorage.setItem("savedNotes", JSON.stringify(savedNotes));
+          alert("Note added!");
+        } else {
+          alert("Please enter a note.");
+        }
+      };
+    }
+
+    backBtn.addEventListener("click", () => {
+      detailView.classList.add("hidden");
+      noteList.classList.remove("hidden");
+      addNoteBtn.classList.add("hidden");
+      addedNotesSection.classList.add("hidden");
+    });
+
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.toLowerCase();
+      suggestions.innerHTML = "";
+
+      if (query.length === 0) {
+        suggestions.classList.add("hidden");
+        return;
+      }
+
+      const subjectList = [
+        "Math", "Web Development", "Mobile Application Development", "Cloud Computing",
+        "Internet of Things (IoT)", "Human Computer Interaction (HCI)", "Big Data Analytics",
+        "Network Security"
+      ];
+
+      const matches = subjectList.filter(sub => sub.toLowerCase().startsWith(query));
+      if (matches.length === 0) {
+        suggestions.classList.add("hidden");
+        return;
+      }
+
+      matches.forEach(sub => {
+        const li = document.createElement("li");
+        li.textContent = sub;
+        li.className = "p-2 hover:bg-gray-100 cursor-pointer";
+        li.onclick = () => {
+          searchInput.value = sub;
+          suggestions.classList.add("hidden");
+          filterSubject.value = sub;
+          currentPage = 1;
+          renderNotes();
+        };
+        suggestions.appendChild(li);
+      });
+
+      suggestions.classList.remove("hidden");
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!searchInput.contains(e.target) && !suggestions.contains(e.target)) {
+        suggestions.classList.add("hidden");
       }
     });
-  </script>
 
+    // Pagination handling
+    prevPageBtn.addEventListener("click", () => {
+      if (currentPage > 1) {
+        currentPage--;
+        renderNotes();
+      }
+    });
+
+    nextPageBtn.addEventListener("click", () => {
+      const filteredNotes = notes.filter(note => {
+        const matchesSearch = note.subject.toLowerCase().includes(searchInput.value.toLowerCase()) || note.title.toLowerCase().includes(searchInput.value.toLowerCase());
+        const matchesSubject = filterSubject.value === "" || note.subject === filterSubject.value;
+        const matchesType = filterType.value === "" || note.type === filterType.value;
+        return matchesSearch && matchesSubject && matchesType;
+      });
+      const totalPages = Math.ceil(filteredNotes.length / itemsPerPage);
+      if (currentPage < totalPages) {
+        currentPage++;
+        renderNotes();
+      }
+    });
+
+    // Filter handlers
+    searchInput.addEventListener("input", () => {
+      currentPage = 1;
+      renderNotes();
+    });
+
+    filterSubject.addEventListener("change", () => {
+      currentPage = 1;
+      renderNotes();
+    });
+
+    filterType.addEventListener("change", () => {
+      currentPage = 1;
+      renderNotes();
+    });
+
+    // Initial render
+    renderNotes();
+  </script>
 </body>
 </html>
